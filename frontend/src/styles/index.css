@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html, body {
+    height: 100%;
+    font-family: 'Raleway', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    height: 100%;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .button-primary {
+    @apply bg-primary text-white font-semibold py-md px-lg uppercase transition-opacity cursor-pointer;
+  }
+  
+  .button-primary:hover {
+    @apply opacity-80;
+  }
+  
+  .button-primary:active {
+    @apply opacity-90;
+  }
+  
+  .button-primary:disabled {
+    @apply bg-light-text cursor-not-allowed;
+  }
+  
+  .button-secondary {
+    @apply bg-transparent text-text border border-text font-semibold py-md px-lg uppercase transition-colors;
+  }
+  
+  .button-secondary:hover {
+    @apply bg-text text-white;
+  }
+  
+  .global-overlay {
+    @apply fixed inset-0 bg-overlay z-10;
+  }
+}

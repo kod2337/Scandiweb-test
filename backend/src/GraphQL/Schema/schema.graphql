@@ -1,0 +1,94 @@
+type Query {
+  categories: [Category!]!
+  category(name: String!): Category
+  products(category: String): [Product!]!
+  product(id: String!): Product
+}
+
+type Mutation {
+  placeOrder(order: OrderInput!): OrderResult!
+}
+
+type Category {
+  name: String!
+  products: [Product!]!
+}
+
+type Product {
+  id: String!
+  name: String!
+  inStock: Boolean!
+  gallery: [String!]!
+  description: String!
+  category: String!
+  attributes: [AttributeSet!]
+  prices: [Price!]!
+  brand: String!
+}
+
+type AttributeSet {
+  id: String!
+  name: String!
+  type: String!
+  items: [Attribute!]!
+}
+
+type Attribute {
+  id: String!
+  displayValue: String!
+  value: String!
+}
+
+type Price {
+  amount: Float!
+  currency: Currency!
+}
+
+type Currency {
+  label: String!
+  symbol: String!
+}
+
+type Order {
+  id: ID!
+  items: [OrderItem!]!
+  total: Float!
+  currency: String!
+  status: String!
+  created_at: String!
+}
+
+type OrderItem {
+  id: ID!
+  product: Product!
+  quantity: Int!
+  attributes: [SelectedAttribute!]!
+  unitPrice: Float!
+}
+
+type SelectedAttribute {
+  name: String!
+  value: String!
+}
+
+type OrderResult {
+  success: Boolean!
+  order: Order
+  message: String
+}
+
+input OrderInput {
+  items: [OrderItemInput!]!
+  currency: String!
+}
+
+input OrderItemInput {
+  productId: String!
+  quantity: Int!
+  attributes: [SelectedAttributeInput!]
+}
+
+input SelectedAttributeInput {
+  name: String!
+  value: String!
+} 

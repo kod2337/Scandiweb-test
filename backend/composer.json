@@ -1,0 +1,24 @@
+{
+    "name": "scandiwebproj/backend",
+    "description": "Backend for Scandiweb Junior Developer Test Task",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "webonyx/graphql-php": "^14.0",
+        "doctrine/dbal": "^3.3",
+        "vlucas/phpdotenv": "^5.4",
+        "psr/log": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Developer",
+            "email": "dev@example.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

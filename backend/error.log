@@ -1,0 +1,477 @@
+[06-May-2025 13:29:10 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:29:10 Europe/Berlin] PHP Warning:  Undefined array key "DB_PASS" in F:\xampp\htdocs\ScandiwebProj\backend\index.php on line 52
+[06-May-2025 13:29:10 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => tech
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:29:10 Europe/Berlin] PHP Warning:  Undefined array key "DB_PASS" in F:\xampp\htdocs\ScandiwebProj\backend\index.php on line 52
+[06-May-2025 13:29:12 Europe/Berlin] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'gallery' in 'field list'
+[06-May-2025 13:31:55 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:31:55 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => tech
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:31:57 Europe/Berlin] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'gallery' in 'field list'
+[06-May-2025 13:31:59 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => clothes
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:32:01 Europe/Berlin] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'gallery' in 'field list'
+[06-May-2025 13:32:02 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:32:32 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:32:32 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:33:16 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:33:16 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:33:42 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:33:42 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:33:54 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:33:54 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:33:59 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:33:59 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
+[06-May-2025 13:34:03 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetCategories
+    [variables] => Array
+        (
+        )
+
+    [query] => query GetCategories {
+  categories {
+    name
+  }
+}
+)
+
+[06-May-2025 13:34:03 Europe/Berlin] GraphQL Query: Array
+(
+    [operationName] => GetProductsByCategory
+    [variables] => Array
+        (
+            [category] => all
+        )
+
+    [query] => query GetProductsByCategory($category: String) {
+  products(category: $category) {
+    id
+    name
+    inStock
+    gallery
+    prices {
+      amount
+      currency {
+        label
+        symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        id
+        displayValue
+        value
+      }
+    }
+    brand
+  }
+}
+)
+
