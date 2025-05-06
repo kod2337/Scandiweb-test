@@ -14,16 +14,11 @@ RewriteRule ^(.*)$ index.php [QSA,L]
     Deny from all
 </FilesMatch>
 
-# Protect vendor directory
-<FilesMatch "^vendor/">
+# Protect vendor directory except for autoload
+<FilesMatch "^vendor/(?!autoload\.php$)">
     Order allow,deny
     Deny from all
 </FilesMatch>
-
-# Allow cross-origin requests
-Header set Access-Control-Allow-Origin "*"
-Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, Accept"
 
 # Security headers
 Header set X-Content-Type-Options "nosniff"
@@ -40,14 +35,12 @@ php_value max_input_time 60
 # Disable directory listing
 Options -Indexes
 
-# Prevent access to hidden files
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Allow only specific file types
+# Allow specific file types
 <FilesMatch "\.(php|json|graphql)$">
     Order allow,deny
     Allow from all
-</FilesMatch> 
+    Satisfy any
+</FilesMatch>
+
+# Set default character set
+AddDefaultCharset UTF-8 

@@ -69,7 +69,10 @@ const errorLink = onError(({ graphQLErrors, networkError, response }) => {
 
 const httpLink = new HttpLink({
   uri: API_URL,
-  credentials: 'same-origin'
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/json',
+  }
 });
 
 const client = new ApolloClient({

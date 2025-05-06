@@ -3,6 +3,31 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Log errors to a file
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/error.log');
+
+// Handle CORS for development
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Origin: http://localhost:5173');
+    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
+    header('Access-Control-Allow-Credentials: true');
+    http_response_code(200);
+    exit;
+}
+
+// Set CORS headers for actual requests
+header('Access-Control-Allow-Origin: http://localhost:5173');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
+
+// Log request details
+error_log('Request Method: ' . $_SERVER['REQUEST_METHOD']);
+error_log('Request Origin: ' . ($_SERVER['HTTP_ORIGIN'] ?? 'none'));
+error_log('Request Headers: ' . json_encode(getallheaders()));
+
 // Autoload classes
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -26,33 +51,25 @@ $isDevelopment = !isset($_ENV['ENVIRONMENT']) || $_ENV['ENVIRONMENT'] === 'devel
 $allowedOrigins = [
     // Production origins
     'https://testproj123.sbca.online',
-    'https://www.testproj123.sbca.online'
+    'https://www.testproj123.sbca.online',
+    // Development origins
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:5174'
 ];
-
-// Add development origins when in development mode
-if ($isDevelopment) {
-    $developmentOrigins = [
-        'http://localhost:5173',
-        'http://localhost:5174',
-        'http://127.0.0.1:5173',
-        'http://127.0.0.1:5174'
-    ];
-    $allowedOrigins = array_merge($allowedOrigins, $developmentOrigins);
-}
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-// Always handle CORS first
+// Handle CORS
 if (in_array($origin, $allowedOrigins)) {
-    header("Access-Control-Allow-Origin: $origin");
-} else {
-    // Default to the appropriate origin based on environment
-    header("Access-Control-Allow-Origin: " . ($isDevelopment ? "http://localhost:5174" : "https://testproj123.sbca.online"));
+    if (!headers_sent()) {
+        header("Access-Control-Allow-Origin: $origin");
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
+    }
 }
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
-header('Content-Type: application/json');
 
 // Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
