@@ -3,8 +3,34 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// CORS headers to allow any origin (for testing only)
-header("Access-Control-Allow-Origin: *");
+// CORS headers
+$isDevelopment = !isset($_ENV['ENVIRONMENT']) || $_ENV['ENVIRONMENT'] === 'development';
+
+$allowedOrigins = [
+    // Production origins
+    'https://testproj.sbca.online',
+    'https://www.testproj.sbca.online',
+];
+
+// Add development origins when in development mode
+if ($isDevelopment) {
+    $developmentOrigins = [
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'http://127.0.0.1:5173',
+        'http://127.0.0.1:5174'
+    ];
+    $allowedOrigins = array_merge($allowedOrigins, $developmentOrigins);
+}
+
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+if (in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
+} else {
+    // Default to the appropriate origin based on environment
+    header("Access-Control-Allow-Origin: " . ($isDevelopment ? "http://localhost:5174" : "https://testproj.sbca.online"));
+}
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
 header('Content-Type: application/json');

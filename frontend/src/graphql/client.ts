@@ -1,11 +1,21 @@
 import { ApolloClient, InMemoryCache, HttpLink, from, ApolloLink } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
-// GraphQL API endpoint - uncomment the one you're using
-// For XAMPP
-const API_URL = 'http://localhost/ScandiwebProj/backend/index.php';
-// For PHP built-in server
-// const API_URL = 'http://localhost:8000';
+// GraphQL API endpoint based on environment
+const getApiUrl = () => {
+  if (import.meta.env.PROD) {
+    // Production environment (Hostinger)
+    return 'https://testproj.sbca.online/backend/index.php';
+  }
+  
+  // Development environment (local)
+  const isXampp = true; // Set this to false if using PHP built-in server
+  return isXampp 
+    ? 'http://localhost/ScandiwebProj/backend/index.php'
+    : 'http://localhost:8000';
+};
+
+const API_URL = getApiUrl();
 
 // Remove __typename fields from all responses
 const removeTypenameLink = new ApolloLink((operation, forward) => {
