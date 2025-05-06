@@ -4,8 +4,8 @@ import { onError } from '@apollo/client/link/error';
 // GraphQL API endpoint based on environment
 const getApiUrl = () => {
   if (import.meta.env.PROD) {
-    // Production environment (Hostinger)
-    return 'https://testproj.sbca.online/backend/index.php';
+    // Production domain
+    return 'https://testproj123.sbca.online/backend/index.php';
   }
   
   // Development environment (local)

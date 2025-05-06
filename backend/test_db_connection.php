@@ -8,8 +8,8 @@ $isDevelopment = !isset($_ENV['ENVIRONMENT']) || $_ENV['ENVIRONMENT'] === 'devel
 
 $allowedOrigins = [
     // Production origins
-    'https://testproj.sbca.online',
-    'https://www.testproj.sbca.online',
+    'https://testproj123.sbca.online',
+    'https://www.testproj123.sbca.online'
 ];
 
 // Add development origins when in development mode
@@ -29,7 +29,7 @@ if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
 } else {
     // Default to the appropriate origin based on environment
-    header("Access-Control-Allow-Origin: " . ($isDevelopment ? "http://localhost:5174" : "https://testproj.sbca.online"));
+    header("Access-Control-Allow-Origin: " . ($isDevelopment ? "http://localhost:5174" : "https://testproj123.sbca.online"));
 }
 header('Content-Type: application/json');
 
