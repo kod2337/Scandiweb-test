@@ -36,7 +36,7 @@ const removeTypenameLink = new ApolloLink((operation, forward) => {
 });
 
 // Error handling link
-const errorLink = onError(({ graphQLErrors, networkError, operation, response }) => {
+const errorLink = onError(({ graphQLErrors, networkError, response }) => {
   if (graphQLErrors) {
     graphQLErrors.forEach(({ message, locations, path, extensions }) => {
       console.error(
