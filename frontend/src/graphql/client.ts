@@ -73,7 +73,7 @@ const httpLink = new HttpLink({
   headers: {
     'Content-Type': 'application/json',
   }
-});
+}); 
 
 const client = new ApolloClient({
   link: from([removeTypenameLink, errorLink, httpLink]),

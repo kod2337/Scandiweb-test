@@ -7,22 +7,6 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 
-// Handle CORS for development
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header('Access-Control-Allow-Origin: http://localhost:5173');
-    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
-    header('Access-Control-Allow-Credentials: true');
-    http_response_code(200);
-    exit;
-}
-
-// Set CORS headers for actual requests
-header('Access-Control-Allow-Origin: http://localhost:5173');
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept');
-
 // Log request details
 error_log('Request Method: ' . $_SERVER['REQUEST_METHOD']);
 error_log('Request Origin: ' . ($_SERVER['HTTP_ORIGIN'] ?? 'none'));
